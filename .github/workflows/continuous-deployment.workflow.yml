@@ -12,8 +12,10 @@ env:
   APP_NAME_PROD: 'online-portfolio-frontend-prod'
 
 jobs:
-  build:
+  build-deploy-dev:
+    needs: build
     runs-on: ubuntu-latest
+    if: success() && github.ref == 'refs/heads/dev'
     steps:
       - uses: actions/checkout@v2
 
@@ -24,13 +26,6 @@ jobs:
 
       - name: Install Dependencies
         run: npm ci
-
-  deploy-dev:
-    needs: build
-    runs-on: ubuntu-latest
-    if: success() && github.ref == 'refs/heads/dev'
-    steps:
-      - uses: actions/checkout@v2
 
       - name: Build Application
         run: npm run build
@@ -44,12 +39,20 @@ jobs:
           heroku_app_name: ${{ env.APP_NAME_DEV }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
 
-  deploy-prod:
+  build-deploy-prod:
     needs: build
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Build Application
         run: npm run build-prod
