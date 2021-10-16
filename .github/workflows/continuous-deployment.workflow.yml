@@ -13,9 +13,8 @@ env:
 
 jobs:
   build-deploy-dev:
-    needs: build
     runs-on: ubuntu-latest
-    if: success() && github.ref == 'refs/heads/dev'
+    if: github.ref == 'refs/heads/dev'
     steps:
       - uses: actions/checkout@v2
 
@@ -40,9 +39,8 @@ jobs:
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
 
   build-deploy-prod:
-    needs: build
     runs-on: ubuntu-latest
-    if: success() && github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
 
