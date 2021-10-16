@@ -7,7 +7,7 @@ on:
       - dev
 
 env:
-  NODE_VERSION: 10.x
+  NODE_VERSION: 14.x
   APP_NAME_DEV: 'online-portfolio-frontend-dev'
   APP_NAME_PROD: 'online-portfolio-frontend-prod'
 
