@@ -33,7 +33,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           usedocker: false
-          appdir: dist
+          appdir: dist/OnlinePortfolioFrontEnd
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ env.APP_NAME_DEV }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
@@ -59,7 +59,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           usedocker: false
-          appdir: dist
+          appdir: dist/OnlinePortfolioFrontEnd
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ env.APP_NAME_PROD }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
