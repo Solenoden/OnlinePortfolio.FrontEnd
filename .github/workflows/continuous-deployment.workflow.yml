@@ -1,65 +1,67 @@
-name: continuous-deployment-workflow
+# TODO: Fix CD pipeline and turn off automatic deployment
 
-on:
-  push:
-    branches:
-      - master
-      - dev
+# name: continuous-deployment-workflow
 
-env:
-  NODE_VERSION: 14.x
-  APP_NAME_DEV: 'online-portfolio-frontend-dev'
-  APP_NAME_PROD: 'online-portfolio-frontend-prod'
+# on:
+#   push:
+#     branches:
+#       - master
+#       - dev
 
-jobs:
-  build-deploy-dev:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/dev'
-    steps:
-      - uses: actions/checkout@v2
+# env:
+#   NODE_VERSION: 14.x
+#   APP_NAME_DEV: 'online-portfolio-frontend-dev'
+#   APP_NAME_PROD: 'online-portfolio-frontend-prod'
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+# jobs:
+#   build-deploy-dev:
+#     runs-on: ubuntu-latest
+#     if: github.ref == 'refs/heads/dev'
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm ci
+#       - name: Use Node.js ${{ env.NODE_VERSION }}
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build Application
-        run: npm run build
+#       - name: Install Dependencies
+#         run: npm ci
 
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          usedocker: false
-          appdir: dist/OnlinePortfolioFrontEnd
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ env.APP_NAME_DEV }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+#       - name: Build Application
+#         run: npm run build
 
-  build-deploy-prod:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v2
+#       - name: Deploy to Heroku
+#         uses: akhileshns/heroku-deploy@v3.12.12
+#         with:
+#           usedocker: false
+#           appdir: dist/OnlinePortfolioFrontEnd
+#           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+#           heroku_app_name: ${{ env.APP_NAME_DEV }}
+#           heroku_email: ${{ secrets.HEROKU_EMAIL }}
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+#   build-deploy-prod:
+#     runs-on: ubuntu-latest
+#     if: github.ref == 'refs/heads/master'
+#     steps:
+#       - uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm ci
+#       - name: Use Node.js ${{ env.NODE_VERSION }}
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Build Application
-        run: npm run build-prod
+#       - name: Install Dependencies
+#         run: npm ci
 
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          usedocker: false
-          appdir: dist/OnlinePortfolioFrontEnd
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ env.APP_NAME_PROD }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+#       - name: Build Application
+#         run: npm run build-prod
+
+#       - name: Deploy to Heroku
+#         uses: akhileshns/heroku-deploy@v3.12.12
+#         with:
+#           usedocker: false
+#           appdir: dist/OnlinePortfolioFrontEnd
+#           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+#           heroku_app_name: ${{ env.APP_NAME_PROD }}
+#           heroku_email: ${{ secrets.HEROKU_EMAIL }}
