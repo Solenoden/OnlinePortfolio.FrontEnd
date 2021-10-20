@@ -1,0 +1,19 @@
+@use '~@angular/material' as mat;
+@import '../../../theme/app.theme.scss';
+
+nav {
+    padding: 20px;
+    color: mat.get-color-from-palette($primary-palette, default-contrast);
+    background: rgba(mat.get-color-from-palette($primary-palette, default), 0.95);
+    box-shadow: 0 8px 32px 0 rgba(mat.get-color-from-palette($primary-palette, default), 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.navigation-item:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
