@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+@import './app/theme/app.theme';
+
+@include mat.all-component-themes($app-theme);
+@include mat.core();
+
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: mat.get-color-from-palette($primary-palette, default);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
