@@ -1,12 +1,21 @@
-@use '~@angular/material' as mat;
+@use '~@angular/material' as material;
 @import './app/theme/app.theme';
+@import './app/theme/mixins/utils/apply-to-desktop.mixin';
+@import './app/theme/mixins/typography-styles.mixin';
 
-@include mat.all-component-themes($app-theme);
-@include mat.core();
+@include material.all-component-themes($app-theme);
+@include material.core();
+
+@include typography-styles();
+
+html, body {
+    height: 100%;
+}
 
 body {
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: mat.get-color-from-palette($primary-palette, default);
+    box-sizing: border-box;
+    margin: 0;
+    background-color: material.get-color-from-palette($primary-palette, default);
 }
 
 .column {

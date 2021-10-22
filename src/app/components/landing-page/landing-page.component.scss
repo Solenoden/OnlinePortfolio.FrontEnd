@@ -1,0 +1,25 @@
+@use '~@angular/material' as material;
+@import '../../theme/app.theme';
+@import '../../theme/mixins/utils/apply-to-desktop.mixin';
+
+#name {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: material.get-color-from-palette($accent-palette, default);
+}
+
+#name + h1 {
+    margin: 0;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+p {
+    color: $muted-grey;
+    width: 80%;
+    line-height: 1.2;
+    font-size: 1.5rem;
+}

@@ -6,6 +6,9 @@ $primary-palette: mat.define-palette($app-dark-blue-palette);
 $accent-palette: mat.define-palette($app-yellow-palette);
 $warn-palette: mat.define-palette(mat.$red-palette);
 
+$primary-font: Roboto, "Helvetica Neue", sans-serif;
+$muted-grey: #8D8D8D;
+
 $app-theme: mat.define-dark-theme((
     color: (
         primary: $primary-palette,
