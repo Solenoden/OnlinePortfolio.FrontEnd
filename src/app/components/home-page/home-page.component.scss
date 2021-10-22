@@ -1,6 +1,8 @@
+@import '../../theme/mixins/utils/apply-to-desktop.mixin';
+
 section {
-    min-height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 
     .section-content {
         margin: auto;

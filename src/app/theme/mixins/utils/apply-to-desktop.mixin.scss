@@ -1,0 +1,7 @@
+$max-mobile-width: 400px;
+
+@mixin apply-to-desktop() {
+    @media screen and (min-width: $max-mobile-width) {
+        @content;
+    }
+}
