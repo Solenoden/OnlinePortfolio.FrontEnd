@@ -1,0 +1,34 @@
+@import '../../theme/mixins/utils/apply-to-desktop.mixin';
+
+.col-12 {
+    padding: 0;
+}
+
+img {
+    height: 150px;
+    width: auto;
+    margin: 10% auto 10px auto;
+    border-radius: 10px;
+}
+
+@include apply-to-desktop() {
+    :host {
+        width: 80%;
+        max-width: 750px;
+    }
+
+    #description-container {
+        margin-bottom: 5px;
+
+        p:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    #portrait-container img {
+        margin: 0 auto 10px auto;
+        height: auto;
+        width: 100%;
+        max-width: 250px;
+    }
+}
