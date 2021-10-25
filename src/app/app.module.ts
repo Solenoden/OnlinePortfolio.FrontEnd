@@ -6,13 +6,15 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { NavigationBarComponent } from './components/common/navigation-bar/navigation-bar.component'
 import { HomePageComponent } from './components/home-page/home-page.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AboutMePageComponent } from './components/about-me-page/about-me-page.component'
 
 @NgModule({
     declarations: [
         AppComponent,
         LandingPageComponent,
         NavigationBarComponent,
-        HomePageComponent
+        HomePageComponent,
+        AboutMePageComponent
     ],
     imports: [
         BrowserModule,

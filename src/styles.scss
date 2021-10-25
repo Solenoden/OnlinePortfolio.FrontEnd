@@ -21,9 +21,11 @@ body {
 .column {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 .row {
     display: flex;
     flex-direction: row;
+    margin: 0;
 }

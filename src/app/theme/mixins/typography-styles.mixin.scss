@@ -4,7 +4,11 @@
 
 @mixin typography-styles {
     html {
-        font-size: 12px;
+        font-size: 16px;
+
+        @include apply-to-desktop() {
+            font-size: 18px;
+        }
     }
 
     body {
@@ -32,11 +36,16 @@
 
     p {
         font-size: 1rem;
+        color: $body-text-color;
     }
 
-    @include apply-to-desktop() {
-        html {
-            font-size: 18px;
+    .title {
+        padding-bottom: 5px;
+        border-bottom: 2px solid material.get-color-from-palette($accent-palette, default);
+        margin-bottom: 0;
+
+        @include apply-to-desktop() {
+            margin-bottom: 0.83em;
         }
     }
 }
