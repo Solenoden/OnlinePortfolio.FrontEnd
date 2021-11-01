@@ -1,7 +1,7 @@
-$max-mobile-width: 400px;
+$max-tablet-width: 768px;
 
 @mixin apply-to-desktop() {
-    @media screen and (min-width: $max-mobile-width) {
+    @media screen and (min-width: $max-tablet-width) {
         @content;
     }
 }

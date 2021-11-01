@@ -24,14 +24,17 @@
 
     h2 {
         font-size: 1.375rem;
+        font-weight: 500;
     }
 
     h3 {
         font-size: 1.25rem;
+        font-weight: 500;
     }
 
     h4 {
         font-size: 1.125rem;
+        font-weight: 500;
     }
 
     p {
@@ -39,13 +42,11 @@
         color: $body-text-color;
     }
 
-    .title {
-        padding-bottom: 5px;
-        border-bottom: 2px solid material.get-color-from-palette($accent-palette, default);
-        margin-bottom: 0;
+    .primary {
+        color: material.get-color-from-palette($primary-palette, default);
+    }
 
-        @include apply-to-desktop() {
-            margin-bottom: 0.83em;
-        }
+    .accent {
+        color: material.get-color-from-palette($accent-palette, default);
     }
 }
