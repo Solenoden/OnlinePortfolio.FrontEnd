@@ -3,8 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+    production: false,
+    emailAddress: window['env'] && window['env']['emailAddress']
+        ? window['env']['emailAddress']
+        : 'gavin.debruyn1@gmail.com',
+    githubProfileLink: window['env'] && window['env']['githubProfileLink']
+        ? window['env']['githubProfileLink']
+        : 'https://github.com/Solenoden',
+    linkedInProfileLink: window['env'] && window['env']['linkedInProfileLink']
+        ? window['env']['linkedInProfileLink']
+        : 'https://www.linkedin.com/in/gavin-de-bruyn-1a8692182/',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

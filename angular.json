@@ -31,7 +31,9 @@
                         "inlineStyleLanguage": "scss",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/environments/env.js",
+                            "src/environments/env.template.js"
                         ],
                         "styles": [
                             "src/styles.scss",
