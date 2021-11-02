@@ -17,3 +17,6 @@ ij_typescript_spaces_within_imports = true
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+[*.yml]
+indent_size = 2
