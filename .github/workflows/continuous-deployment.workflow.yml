@@ -22,7 +22,7 @@ jobs:
         with:
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_DEV }}
           dockerfile_directory: ./
           dockerfile_name: Dockerfile-dev
           docker_options: ${{ "--no-cache --build-arg node_version=" + env.NODE_VERSION }}
@@ -40,7 +40,7 @@ jobs:
         with:
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
           dockerfile_directory: ./
           dockerfile_name: Dockerfile-prod
           docker_options: ${{ "--no-cache --build-arg node_version=" + env.NODE_VERSION }}
