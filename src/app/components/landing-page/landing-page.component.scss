@@ -1,7 +1,7 @@
 @use '~@angular/material' as material;
 @import '../../theme/app.theme';
-@import '../../theme/mixins/utils/apply-to-tablet.mixin';
-@import '../../theme/mixins/utils/apply-to-desktop.mixin';
+@import '../../theme/mixins/apply-to-tablet.mixin';
+@import '../../theme/mixins/apply-to-desktop.mixin';
 
 #page-container {
     display: flex;

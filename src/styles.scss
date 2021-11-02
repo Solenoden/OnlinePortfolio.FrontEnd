@@ -1,12 +1,10 @@
 @use '~@angular/material' as material;
 @import './app/theme/app.theme';
-@import './app/theme/mixins/utils/apply-to-desktop.mixin';
-@import './app/theme/mixins/typography-styles.mixin';
+@import 'app/theme/mixins/apply-to-desktop.mixin';
+@import 'app/theme/styles/typography-styles';
 
 @include material.all-component-themes($app-theme);
 @include material.core();
-
-@include typography-styles();
 
 html, body {
     height: 100%;

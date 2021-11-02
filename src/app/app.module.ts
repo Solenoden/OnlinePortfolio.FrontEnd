@@ -7,6 +7,8 @@ import { NavigationBarComponent } from './components/common/navigation-bar/navig
 import { HomePageComponent } from './components/home-page/home-page.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AboutMePageComponent } from './components/about-me-page/about-me-page.component'
+import { SocialMediaRibbonComponent } from './components/common/social-media-ribbon/social-media-ribbon.component'
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
     declarations: [
@@ -14,12 +16,14 @@ import { AboutMePageComponent } from './components/about-me-page/about-me-page.c
         LandingPageComponent,
         NavigationBarComponent,
         HomePageComponent,
-        AboutMePageComponent
+        AboutMePageComponent,
+        SocialMediaRibbonComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]
