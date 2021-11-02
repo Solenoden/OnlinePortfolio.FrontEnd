@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 (function(window) {
     window['env'] = window['env'] || {}
 

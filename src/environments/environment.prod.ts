@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export const environment = {
     production: true,
     emailAddress: window['env'] && window['env']['emailAddress']
