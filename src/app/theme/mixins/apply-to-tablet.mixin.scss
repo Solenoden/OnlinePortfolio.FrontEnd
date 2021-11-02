@@ -1,6 +1,6 @@
 $max-mobile-width: 400px;
 
-@mixin apply-to-desktop() {
+@mixin apply-to-tablet() {
     @media screen and (min-width: $max-mobile-width) {
         @content;
     }

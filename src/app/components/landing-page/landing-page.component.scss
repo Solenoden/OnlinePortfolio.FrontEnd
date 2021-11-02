@@ -1,25 +1,71 @@
 @use '~@angular/material' as material;
 @import '../../theme/app.theme';
-@import '../../theme/mixins/utils/apply-to-desktop.mixin';
+@import '../../theme/mixins/apply-to-tablet.mixin';
+@import '../../theme/mixins/apply-to-desktop.mixin';
 
-#name {
+#page-container {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    margin: 20px auto;
+    border-radius: 100%;
+}
+
+h1, h2, h3 {
     margin-top: 0;
-    margin-bottom: 5px;
-    color: material.get-color-from-palette($accent-palette, default);
+    margin-bottom: 10px;
 }
 
-#name + h1 {
-    margin: 0;
-}
-
-h1 {
-    font-weight: 400;
-    font-size: 3rem;
+h2, h3 {
+    font-weight: normal;
 }
 
 p {
     color: $muted-grey;
     width: 80%;
     line-height: 1.2;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+@include apply-to-tablet() {
+    #page-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    h1, h2 {
+        font-size: 2.5rem;
+    }
+
+    h3, p {
+        font-size: 1.25rem;
+    }
+
+    img {
+        height: auto;
+        width: 100%;
+        max-width: 150px;
+        margin-top: auto;
+    }
+}
+
+@include apply-to-desktop() {
+    img {
+        max-width: 250px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    h1, h2 {
+        font-size: 2.5rem;
+    }
+
+    h3, p {
+        font-size: 1.35rem;
+    }
 }
