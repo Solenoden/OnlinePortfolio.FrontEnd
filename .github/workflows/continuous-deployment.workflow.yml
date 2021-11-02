@@ -25,7 +25,7 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME_DEV }}
           dockerfile_directory: ./
           dockerfile_name: Dockerfile-dev
-          docker_options: ${{ '--no-cache --build-arg node_version=' + env.NODE_VERSION }}
+          docker_options: ${{ format('{0}{1}', '--no-cache --build-arg node_version=', env.NODE_VERSION) }}
           process_type: web
 
   publish-prod:
@@ -43,5 +43,5 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
           dockerfile_directory: ./
           dockerfile_name: Dockerfile-prod
-          docker_options: ${{ '--no-cache --build-arg node_version=' + env.NODE_VERSION }}
+          docker_options: ${{ format('{0}{1}', '--no-cache --build-arg node_version=', env.NODE_VERSION) }}
           process_type: web
