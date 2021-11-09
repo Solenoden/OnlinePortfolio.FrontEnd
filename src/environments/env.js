@@ -7,4 +7,5 @@
     window['env']['emailAddress'] = ''
     window['env']['githubProfileLink'] = ''
     window['env']['linkedInProfileLink'] = ''
+    window['env']['backendUrl'] = ''
 })(this)

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AboutMePageComponent } from './components/about-me-page/about-me-page.component'
 import { SocialMediaRibbonComponent } from './components/common/social-media-ribbon/social-media-ribbon.component'
 import { MatIconModule } from '@angular/material/icon'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon'
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        MatIconModule
+        MatIconModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
