@@ -11,4 +11,7 @@ export const environment = {
     linkedInProfileLink: window['env'] && window['env']['linkedInProfileLink']
         ? window['env']['linkedInProfileLink']
         : '',
+    backendUrl: window['env'] && window['env']['backendUrl']
+        ? window['env']['backendUrl']
+        : '',
 }

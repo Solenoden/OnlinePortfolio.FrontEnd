@@ -11,4 +11,7 @@ export const environment = {
     linkedInProfileLink: window['env'] && window['env']['linkedInProfileLink']
         ? window['env']['linkedInProfileLink']
         : 'https://www.linkedin.com/in/gavin-de-bruyn-1a8692182/',
+    backendUrl: window['env'] && window['env']['backendUrl']
+        ? window['env']['backendUrl']
+        : 'https://online-portfolio-backend-dev.herokuapp.com',
 }
