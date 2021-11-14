@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { Project } from '../models/project.model'
-import { JsonConvert, OperationMode, ValueCheckingMode } from 'json2typescript'
 
 enum StorageKey {
     Projects = 'projects'
@@ -9,10 +8,8 @@ enum StorageKey {
 @Injectable({ providedIn: 'root' })
 export class CacheService {
     public getProjects(): Project[] {
-        const deserializer = new JsonConvert(OperationMode.ENABLE, ValueCheckingMode.ALLOW_NULL)
-        const json = sessionStorage.getItem(StorageKey.Projects)
-
-        return deserializer.deserializeArray(JSON.parse(json), Project)
+        const json = JSON.parse(sessionStorage.getItem(StorageKey.Projects)) as Record<string, unknown>[]
+        return json ? json.map(jsonObj => Project.fromJson(jsonObj)) : undefined
     }
 
     public setProjects(projects: Project[]): void {

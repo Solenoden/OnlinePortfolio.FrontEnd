@@ -57,6 +57,12 @@
                 "@typescript-eslint/unbound-method": "off",
                 "@typescript-eslint/restrict-plus-operands": "off"
             }
+        },
+        {
+            "files": ["*.spec.ts"],
+            "rules": {
+                "@typescript-eslint/no-explicit-any": "off"
+            }
         }
     ]
 }

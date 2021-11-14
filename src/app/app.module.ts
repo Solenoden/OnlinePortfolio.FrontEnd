@@ -10,6 +10,10 @@ import { AboutMePageComponent } from './components/about-me-page/about-me-page.c
 import { SocialMediaRibbonComponent } from './components/common/social-media-ribbon/social-media-ribbon.component'
 import { MatIconModule } from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http'
+import { ProjectsPageComponent } from './components/projects-page/projects-page.component'
+import { FormsModule } from '@angular/forms'
+import { NgxPaginationModule } from 'ngx-pagination'
+import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
     declarations: [
@@ -18,16 +22,22 @@ import { HttpClientModule } from '@angular/common/http'
         NavigationBarComponent,
         HomePageComponent,
         AboutMePageComponent,
-        SocialMediaRibbonComponent
+        SocialMediaRibbonComponent,
+        ProjectsPageComponent
     ],
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatIconModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        NgxPaginationModule,
+        MatInputModule
     ],
-    providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }

@@ -25,7 +25,7 @@ export class StateService {
             this.apiService.getProjects().subscribe(result => {
                 this.cacheService.setProjects(result)
 
-                observer.next(projects)
+                observer.next(result)
                 observer.complete()
             }, error => {
                 observer.error(error)

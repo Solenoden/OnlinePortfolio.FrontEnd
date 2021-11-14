@@ -1,8 +1,10 @@
 @use '~@angular/material' as material;
-@import './app/theme/app.theme';
+
 @import 'app/theme/mixins/apply-to-desktop.mixin';
 @import 'app/theme/styles/typography-styles';
+@import 'app/theme/styles/control-styles';
 
+@import './app/theme/app.theme';
 @include material.all-component-themes($app-theme);
 @include material.core();
 
