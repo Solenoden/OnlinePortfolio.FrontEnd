@@ -1,0 +1,54 @@
+<div id="modal-header" class="row">
+    <h2>{{ project.name }}</h2>
+    <a *ngIf="project.url" [href]="project.url" target="_blank"><mat-icon>launch</mat-icon></a>
+</div>
+
+<div id="modal-body">
+    <p>{{ project.description }}</p>
+
+    <mat-form-field appearance="fill">
+        <mat-select [(ngModel)]="selectedRepository">
+            <mat-option *ngFor="let repository of project.repositories" [value]="repository">
+                {{ repository.name }}
+            </mat-option>
+        </mat-select>
+        <mat-icon matPrefix>folder</mat-icon>
+    </mat-form-field>
+
+    <div id="repository-info-block" class="row">
+        <div class="row">
+            <div class="field col-sm-4" *ngIf="selectedRepository.createdAt">
+                <div class="field-title">Created at</div>
+                <div class="field-value">{{ selectedRepository.createdAt | epochDate }}</div>
+            </div>
+
+            <div class="field col-sm-4" *ngIf="selectedRepository.updatedAt">
+                <div class="field-title">Last updated at</div>
+                <div class="field-value">{{ selectedRepository.updatedAt | epochDate }}</div>
+            </div>
+
+            <div class="field col-sm-4" *ngIf="selectedRepository.cloudInfrastructure">
+                <div class="field-title">Cloud</div>
+                <div class="field-value">{{ selectedRepository.cloudInfrastructure }}</div>
+            </div>
+
+            <div class="field col-sm-4" *ngIf="selectedRepository.cicd">
+                <div class="field-title">CI/CD</div>
+                <div class="field-value">{{ selectedRepository.cicd }}</div>
+            </div>
+
+            <div class="field col-sm-4" *ngIf="selectedRepository.technologies">
+                <div class="field-title">Technologies</div>
+                <div class="field-value" *ngFor="let technology of selectedRepository.technologies">{{ technology }}</div>
+            </div>
+
+            <div class="field col-sm-4" *ngIf="selectedRepository.skills">
+                <div class="field-title">Skills</div>
+                <div class="field-value" *ngFor="let skill of selectedRepository.skills">{{ skill }}</div>
+            </div>
+        </div>
+        <a  [href]="selectedRepository.url" target="_blank">
+            <img alt="Github" src="assets/images/github-icon.svg">
+        </a>
+    </div>
+</div>

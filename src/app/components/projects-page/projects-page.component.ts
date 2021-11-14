@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { StateService } from '../../services/state.service'
 import { Project } from '../../models/project.model'
+import { ModalService } from '../../services/modal.service'
+import { ProjectDetailModalComponent } from '../project-detail-modal/project-detail-modal.component'
 
 @Component({
     selector: 'app-projects-page',
@@ -15,7 +17,8 @@ export class ProjectsPageComponent implements OnInit {
     public couldNotRetrieveProjects = false
 
     constructor(
-        private stateService: StateService
+        private stateService: StateService,
+        private modalService: ModalService
     ) {}
 
     ngOnInit(): void {
@@ -34,6 +37,13 @@ export class ProjectsPageComponent implements OnInit {
     public searchProjects(): void {
         this.projectsToDisplay = this.projectSearchText.trim().length === 0 ? this.allProjects : this.allProjects.filter(
             project => project.name.toLowerCase().includes(this.projectSearchText.trim().toLowerCase())
+        )
+    }
+
+    public openProjectDetailModal(project: Project): void {
+        this.modalService.openResponsiveModal<ProjectDetailModalComponent>(
+            ProjectDetailModalComponent,
+            { project }
         )
     }
 }

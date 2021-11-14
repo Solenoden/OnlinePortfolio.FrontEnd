@@ -42,6 +42,11 @@ p {
     color: $body-text-color;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .title {
     color: material.get-color-from-palette($accent-palette, default);
     margin-bottom: 5px;
