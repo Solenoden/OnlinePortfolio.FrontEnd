@@ -1,23 +1,25 @@
 import { Repository } from './repository.model'
-import { JsonObject, JsonProperty } from 'json2typescript'
 
-@JsonObject('Project')
 export class Project {
-    @JsonProperty('id', Number)
     id: number
-
-    @JsonProperty('name', String)
     name: string
-
-    @JsonProperty('description', String)
     description: string
-
-    @JsonProperty('repositories', [Repository])
     repositories: Repository[]
-
-    @JsonProperty('createdAt', Number)
     createdAt: number
-
-    @JsonProperty('updatedAt', Number)
     updatedAt: number
+
+    public static fromJson(jsonObj: Record<string, unknown>): Project {
+        const project = new Project()
+        project.id = jsonObj.id as number
+        project.name = jsonObj.name as string
+        project.description = jsonObj.description as string
+        project.createdAt = jsonObj.createdAt as number
+        project.updatedAt = jsonObj.updatedAt as number
+        // eslint-disable-next-line no-extra-parens
+        project.repositories = (jsonObj.repositories as Record<string, unknown>[]).map(
+            repositoryJson => Repository.fromJson(repositoryJson)
+        )
+
+        return project
+    }
 }

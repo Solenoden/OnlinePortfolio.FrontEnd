@@ -1,0 +1,28 @@
+<h1 class="title">Projects</h1>
+
+<div *ngIf="!couldNotRetrieveProjects">
+    <mat-form-field appearance="outline" floatLabel="never">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [(ngModel)]="projectSearchText" (input)="searchProjects()" placeholder="Search by name..." autocomplete="off">
+    </mat-form-field>
+
+    <div id="project-list" class="row">
+        <div class="project-card column" *ngFor="let project of projectsToDisplay | paginate: { itemsPerPage: 4, currentPage: currentPageNumber }">
+            <mat-icon class="material-icons-outlined">folder</mat-icon>
+
+            <h4>{{ project.name }}</h4>
+            <p>{{ project.description }}</p>
+        </div>
+        <div class="error-block" *ngIf="projectsToDisplay.length === 0">
+            <mat-icon>search_off</mat-icon>
+            <span>No projects found</span>
+        </div>
+    </div>
+
+    <pagination-controls *ngIf="projectsToDisplay.length > 0" (pageChange)="currentPageNumber = $event"></pagination-controls>
+</div>
+
+<div *ngIf="couldNotRetrieveProjects" class="error-block">
+    <mat-icon>error_outline</mat-icon>
+    <span>An unexpected error occurred</span>
+</div>

@@ -4,14 +4,12 @@ import { Observable } from 'rxjs'
 import { Project } from '../models/project.model'
 import { environment } from '../../environments/environment'
 import { ApiCallError } from '../errors/app.errors'
-import { JsonConvert, ValueCheckingMode } from 'json2typescript'
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
     constructor(
         private httpClient: HttpClient
-    ) {
-    }
+    ) {}
 
     private static createHeaders(): HttpHeaders {
         const headers = new HttpHeaders()
@@ -22,7 +20,7 @@ export class ApiService {
 
     public getProjects(): Observable<Project[]> {
         return new Observable<Project[]>(observer => {
-            const endpoint = environment.backendUrl + '/projects'
+            const endpoint = environment.backendUrl + '/api/v1/projects'
 
             this.httpClient.get(
                 endpoint,
@@ -31,9 +29,8 @@ export class ApiService {
                     observe: 'response'
                 }
             ).subscribe(result => {
-                const deserializer = new JsonConvert()
-                deserializer.valueCheckingMode = ValueCheckingMode.ALLOW_NULL
-                const projects = deserializer.deserializeArray(result.body as any[], Project)
+                const body = result.body as Record<string, unknown>[]
+                const projects: Project[] = body.map(json => Project.fromJson(json))
 
                 observer.next(projects)
             }, error => {

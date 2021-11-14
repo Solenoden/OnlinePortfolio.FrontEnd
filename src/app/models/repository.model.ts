@@ -1,52 +1,40 @@
-import { JsonObject, JsonProperty } from 'json2typescript'
-
-@JsonObject('Repository')
 export class Repository {
-    @JsonProperty('id', Number)
     id: number
-
-    @JsonProperty('name', String)
     name: string
-
-    @JsonProperty('description', String)
     description: string
-
-    @JsonProperty('projectId', Number)
     projectId: number
-
-    @JsonProperty('cicd', String)
     cicd: string
-
-    @JsonProperty('cloudInfrastructure', String)
     cloudInfrastructure: string
-
-    @JsonProperty('url', String)
     url: string
-
-    @JsonProperty('starCount', Number)
     starCount: number
-
-    @JsonProperty('watcherCount', Number)
     watcherCount: number
-
-    @JsonProperty('forkCount', Number)
     forkCount: number
-
-    @JsonProperty('openIssueCount', Number)
     openIssueCount: number
-
-    @JsonProperty('tags', [String])
     tags: string[]
-
-    @JsonProperty('technologies', [String])
     technologies: string[]
-
-    @JsonProperty('skills', [String])
     skills: string[]
-
-    @JsonProperty('createdAt', Number)
     createdAt: number
-
-    @JsonProperty('updatedAt', Number)
     updatedAt: number
+
+    public static fromJson(jsonObj: Record<string, unknown>): Repository {
+        const repository = new Repository()
+        repository.id = jsonObj.id as number
+        repository.name = jsonObj.name as string
+        repository.description = jsonObj.description as string
+        repository.projectId = jsonObj.projectId as number
+        repository.cicd = jsonObj.cicd as string
+        repository.cloudInfrastructure = jsonObj.cloudInfrastructure as string
+        repository.url = jsonObj.url as string
+        repository.starCount = jsonObj.starCount as number
+        repository.watcherCount = jsonObj.watcherCount as number
+        repository.forkCount = jsonObj.forkCount as number
+        repository.openIssueCount = jsonObj.openIssueCount as number
+        repository.tags = jsonObj.name as string[]
+        repository.technologies = jsonObj.technologies as string[]
+        repository.skills = jsonObj.skills as string[]
+        repository.createdAt = jsonObj.createdAt as number
+        repository.updatedAt = jsonObj.updatedAt as number
+
+        return repository
+    }
 }

@@ -1,8 +1,9 @@
 @import '../../theme/mixins/apply-to-desktop.mixin';
 
 section {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
+    padding: 15px;
 
     .section-content {
         margin: auto;

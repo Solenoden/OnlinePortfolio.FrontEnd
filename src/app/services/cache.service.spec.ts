@@ -115,6 +115,13 @@ describe('test CacheService', () => {
                     void expect(project).toBeInstanceOf(Project)
                 })
             })
+
+            it('should return undefined if there is no cached data', () => {
+                sessionStorageGetItemSpy.and.returnValue(null)
+                const projects = cacheService.getProjects()
+
+                void expect(projects).toEqual(undefined)
+            })
         })
 
         describe('test setProjects', () => {
