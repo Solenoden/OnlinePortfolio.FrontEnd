@@ -10,7 +10,7 @@ nav {
 
     position: fixed;
     top: 0;
-    z-index: 99999;
+    z-index: 100;
     width: 100%;
     padding: 20px;
     color: material.get-color-from-palette($primary-palette, default-contrast);

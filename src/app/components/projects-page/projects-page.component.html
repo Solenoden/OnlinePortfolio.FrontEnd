@@ -7,7 +7,8 @@
     </mat-form-field>
 
     <div id="project-list" class="row">
-        <div class="project-card column" *ngFor="let project of projectsToDisplay | paginate: { itemsPerPage: 4, currentPage: currentPageNumber }">
+        <div *ngFor="let project of projectsToDisplay | paginate: { itemsPerPage: 4, currentPage: currentPageNumber }"
+             class="project-card column" (click)="openProjectDetailModal(project)">
             <mat-icon class="material-icons-outlined">folder</mat-icon>
 
             <h4>{{ project.name }}</h4>

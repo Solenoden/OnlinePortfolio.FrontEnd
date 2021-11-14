@@ -53,6 +53,15 @@ pagination-controls .ngx-pagination {
     position: unset;
 }
 
+.mat-select-arrow-wrapper {
+    transform: translateY(0%);
+}
+
 input[readonly] {
     cursor: default;
+}
+
+.mat-select-panel .mat-option {
+    background: material.get-color-from-palette($primary-palette, default) !important;
+    color: material.get-color-from-palette($primary-palette, default-contrast) !important;
 }

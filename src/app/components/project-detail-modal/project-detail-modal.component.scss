@@ -1,0 +1,75 @@
+@use '~@angular/material' as material;
+@import '../../theme/app.theme';
+
+$modal-padding: 15px;
+
+#modal-header {
+    justify-content: space-between;
+    padding: $modal-padding;
+    border-bottom: 2px solid material.get-color-from-palette($primary-palette, darker-contrast);
+
+    h2 {
+        margin: auto 0;
+        height: fit-content;
+    }
+
+    mat-icon {
+        margin: auto 0;
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+#modal-body {
+    padding: $modal-padding;
+}
+
+#repository-info-block {
+    a {
+        margin-left: auto;
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        .field-title {
+            margin-bottom: 2px;
+            color: $muted-grey;
+        }
+    }
+}
+
+p {
+    margin-bottom: 32px;
+    margin-top: 27px;
+}
+
+mat-form-field {
+    width: 100%;
+
+    ::ng-deep .mat-form-field-flex {
+        padding-top: 0;
+        background-color: material.get-color-from-palette($primary-palette, default);
+    }
+
+    ::ng-deep .mat-form-field-prefix .mat-icon {
+        margin-right: 15px;
+    }
+}
+
+::ng-deep .mat-bottom-sheet-container, ::ng-deep .mat-dialog-container {
+    padding: 0;
+    border: 3px solid material.get-color-from-palette($primary-palette, darker-contrast);
+}
+
+::ng-deep .mat-bottom-sheet-container {
+    border-bottom: none;
+}

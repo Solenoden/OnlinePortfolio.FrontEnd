@@ -14,6 +14,11 @@ import { ProjectsPageComponent } from './components/projects-page/projects-page.
 import { FormsModule } from '@angular/forms'
 import { NgxPaginationModule } from 'ngx-pagination'
 import { MatInputModule } from '@angular/material/input'
+import { ProjectDetailModalComponent } from './components/project-detail-modal/project-detail-modal.component'
+import { MatSelectModule } from '@angular/material/select'
+import { EpochDatePipe } from './pipes/epoch-date.pipe'
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
     declarations: [
@@ -23,7 +28,9 @@ import { MatInputModule } from '@angular/material/input'
         HomePageComponent,
         AboutMePageComponent,
         SocialMediaRibbonComponent,
-        ProjectsPageComponent
+        ProjectsPageComponent,
+        ProjectDetailModalComponent,
+        EpochDatePipe
     ],
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     imports: [
@@ -34,7 +41,10 @@ import { MatInputModule } from '@angular/material/input'
         HttpClientModule,
         FormsModule,
         NgxPaginationModule,
-        MatInputModule
+        MatInputModule,
+        MatSelectModule,
+        MatBottomSheetModule,
+        MatDialogModule
     ],
     bootstrap: [
         AppComponent

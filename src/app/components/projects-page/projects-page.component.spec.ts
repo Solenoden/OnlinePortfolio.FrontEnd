@@ -6,6 +6,9 @@ import Spy = jasmine.Spy
 import { of, throwError } from 'rxjs'
 import { StateService } from '../../services/state.service'
 import { NgxPaginationModule } from 'ngx-pagination'
+import { ProjectDetailModalComponent } from '../project-detail-modal/project-detail-modal.component'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 
 describe('ProjectsPageComponent', () => {
     let component: ProjectsPageComponent
@@ -28,7 +31,9 @@ describe('ProjectsPageComponent', () => {
         await TestBed.configureTestingModule({
             imports: [
                 HttpClientModule,
-                NgxPaginationModule
+                NgxPaginationModule,
+                MatDialogModule,
+                MatBottomSheetModule
             ],
             declarations: [
                 ProjectsPageComponent
@@ -100,6 +105,18 @@ describe('ProjectsPageComponent', () => {
             component.searchProjects()
 
             void expect(component.projectsToDisplay).toEqual(mockProjects)
+        })
+    })
+
+    describe('openProjectDetailModal', () => {
+        it('should open a responsive project detail modal', () => {
+            const openResponsiveModalSpy = spyOn(component['modalService'], 'openResponsiveModal')
+            component.openProjectDetailModal(new Project())
+
+            void expect(openResponsiveModalSpy).toHaveBeenCalledOnceWith(
+                ProjectDetailModalComponent,
+                { project: new Project }
+            )
         })
     })
 })

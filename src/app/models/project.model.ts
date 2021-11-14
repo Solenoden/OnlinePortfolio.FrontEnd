@@ -4,6 +4,7 @@ export class Project {
     id: number
     name: string
     description: string
+    url: string
     repositories: Repository[]
     createdAt: number
     updatedAt: number
@@ -13,6 +14,7 @@ export class Project {
         project.id = jsonObj.id as number
         project.name = jsonObj.name as string
         project.description = jsonObj.description as string
+        project.url = jsonObj.url as string
         project.createdAt = jsonObj.createdAt as number
         project.updatedAt = jsonObj.updatedAt as number
         // eslint-disable-next-line no-extra-parens
