@@ -1,0 +1,23 @@
+@use '~@angular/material' as material;
+@import '../app.theme';
+
+$modal-border-radius: 15px;
+
+.mat-bottom-sheet-container, .mat-dialog-container {
+    display: flex !important;
+    background-color: material.get-color-from-palette($primary-palette, darker) !important;
+    color: material.get-color-from-palette($primary-palette, darker-contrast);
+}
+
+.mat-bottom-sheet-container {
+    width: 100vw !important;
+    min-width: 100vw !important;
+    max-width: 100vw !important;
+    flex-direction: column;
+    border-radius: $modal-border-radius $modal-border-radius 0 0;
+}
+
+.mat-dialog-container {
+    flex-direction: row;
+    border-radius: $modal-border-radius !important;
+}

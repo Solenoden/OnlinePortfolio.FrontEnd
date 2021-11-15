@@ -1,0 +1,23 @@
+@use '~@angular/material' as material;
+@import '../../../theme/app.theme.scss';
+@import '../../../theme/mixins/glass-morphism.mixin';
+
+nav {
+    @include glass-morphism(
+        $background-color: material.get-color-from-palette($primary-palette, default),
+        $background-opacity: 0.95
+    );
+
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 20px;
+    color: material.get-color-from-palette($primary-palette, default-contrast);
+    box-shadow: 0 8px 32px 0 rgba(material.get-color-from-palette($primary-palette, default), 0.65);
+}
+
+.navigation-item:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}

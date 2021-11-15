@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as material;
+
+@import 'app/theme/mixins/apply-to-desktop.mixin';
+@import 'app/theme/styles/typography-styles';
+@import 'app/theme/styles/control-styles';
+@import 'app/theme/styles/modal-styles';
+
+@import './app/theme/app.theme';
+@include material.all-component-themes($app-theme);
+@include material.core();
+
+html, body {
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background-color: material.get-color-from-palette($primary-palette, default);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}

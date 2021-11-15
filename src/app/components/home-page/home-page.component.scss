@@ -1,0 +1,11 @@
+@import '../../theme/mixins/apply-to-desktop.mixin';
+
+section {
+    min-height: 100%;
+    width: 100%;
+    padding: 15px;
+
+    .section-content {
+        margin: auto;
+    }
+}

@@ -1,65 +1,47 @@
-name: continuous-deployment-workflow
+name: continuous-deployment
 
 on:
   push:
     branches:
-      - master
       - dev
+      - master
 
 env:
-  NODE_VERSION: 14.x
-  APP_NAME_DEV: 'online-portfolio-frontend-dev'
-  APP_NAME_PROD: 'online-portfolio-frontend-prod'
+  NODE_VERSION: 14.18.1
 
 jobs:
-  build-deploy-dev:
-    runs-on: ubuntu-latest
+  publish-dev:
     if: github.ref == 'refs/heads/dev'
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build Application
-        run: npm run build
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          usedocker: false
-          appdir: dist/OnlinePortfolioFrontEnd
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ env.APP_NAME_DEV }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-
-  build-deploy-prod:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
+      - name: Build & publish container to Heroku
+        uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build Application
-        run: npm run build-prod
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          usedocker: false
-          appdir: dist/OnlinePortfolioFrontEnd
+          email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ env.APP_NAME_PROD }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_DEV }}
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile-dev
+          docker_options: ${{ format('{0}{1}', '--no-cache --build-arg node_version=', env.NODE_VERSION) }}
+          process_type: web
+
+  publish-prod:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build & publish container to Heroku
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD }}
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile-prod
+          docker_options: ${{ format('{0}{1}', '--no-cache --build-arg node_version=', env.NODE_VERSION) }}
+          process_type: web
