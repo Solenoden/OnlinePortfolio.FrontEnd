@@ -4,6 +4,7 @@
 @import 'app/theme/styles/typography-styles';
 @import 'app/theme/styles/control-styles';
 @import 'app/theme/styles/modal-styles';
+@import 'app/theme/styles/button-styles';
 
 @import './app/theme/app.theme';
 @include material.all-component-themes($app-theme);

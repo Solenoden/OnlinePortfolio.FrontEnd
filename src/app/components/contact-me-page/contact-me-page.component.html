@@ -1,0 +1,24 @@
+<h1 class="title">So what's next?</h1>
+
+<p>I am not currently seeking job opportunities but, I would however, love to hear from you!</p>
+
+<div class="row">
+    <a [href]="'mailto:' + emailAddress">
+        <button class="btn-ghost">
+            <mat-icon buttonPrefix>email</mat-icon>
+            <span>{{ emailAddress }}</span>
+        </button>
+    </a>
+    <a [href]="linkedInProfileLink" target="_blank">
+        <button class="btn-ghost">
+            <img buttonPrefix src="assets/images/linkedin-icon.svg" alt="LinkedIn profile">
+            <span>{{ linkedInUsername }}</span>
+        </button>
+    </a>
+    <a [href]="githubProfileLink" target="_blank">
+        <button class="btn-ghost">
+            <img buttonPrefix src="assets/images/github-icon.svg" alt="GitHub profile">
+            <span>{{ githubUsername }}</span>
+        </button>
+    </a>
+</div>

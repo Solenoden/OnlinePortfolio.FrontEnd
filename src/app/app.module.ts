@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { EpochDatePipe } from './pipes/epoch-date.pipe'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import { MatDialogModule } from '@angular/material/dialog'
+import { ContactMePageComponent } from './components/contact-me-page/contact-me-page.component'
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog'
         SocialMediaRibbonComponent,
         ProjectsPageComponent,
         ProjectDetailModalComponent,
-        EpochDatePipe
+        EpochDatePipe,
+        ContactMePageComponent
     ],
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     imports: [

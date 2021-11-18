@@ -4,8 +4,10 @@
     window.env = window.env || {}
 
     // Environment variables
+    window['env']['backendUrl'] = '${BACKEND_URL}'
     window['env']['emailAddress'] = '${EMAIL_ADDRESS}'
     window['env']['githubProfileLink'] = '${GITHUB_PROFILE_LINK}'
+    window['env']['githubUsername'] = '${GITHUB_USERNAME}'
     window['env']['linkedInProfileLink'] = '${LINKED_IN_PROFILE_LINK}'
-    window['env']['backendUrl'] = '${BACKEND_URL}'
+    window['env']['linkedInUsername'] = '${LINKED_IN_USERNAME}'
 })(this)
