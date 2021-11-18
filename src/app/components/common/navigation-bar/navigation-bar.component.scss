@@ -1,7 +1,7 @@
 @use '~@angular/material' as material;
 @import '../../../theme/app.theme.scss';
 @import '../../../theme/mixins/glass-morphism.mixin';
-@import '../../../theme/mixins/apply-to-tablet.mixin';
+@import '../../../theme/mixins/apply-to-desktop.mixin';
 
 nav {
     @include glass-morphism(
@@ -30,6 +30,12 @@ nav {
 .navigation-item:hover {
     opacity: 0.8;
     cursor: pointer;
+}
+
+#home-page-link {
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 mat-icon {
@@ -79,7 +85,7 @@ mat-icon {
     }
 }
 
-@include apply-to-tablet {
+@include apply-to-desktop {
     #navigation-links {
         display: flex;
     }

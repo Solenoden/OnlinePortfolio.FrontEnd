@@ -23,7 +23,7 @@ button {
 
 button.btn-ghost {
     background: transparent;
-    border: 3px solid material.get-color-from-palette($primary-palette, default-contast);
+    border: 2px solid material.get-color-from-palette($primary-palette, default-contast);
     color: material.get-color-from-palette($primary-palette, default-contrast);
 
     &:hover {

@@ -10,6 +10,11 @@
 @include material.all-component-themes($app-theme);
 @include material.core();
 
+*:focus {
+    outline: none;
+    opacity: 0.6;
+}
+
 html, body {
     height: 100%;
     scroll-behavior: smooth;
