@@ -1,3 +1,28 @@
 <nav class="row">
-    <div routerLink="/" class="navigation-item">gavin de bruyn</div>
+    <div>
+        <div routerLink="/" class="navigation-item">gavin de bruyn</div>
+    </div>
+
+    <mat-icon id="open-hamburger-button" (click)="toggleIsHamburgerMenuOpen()" *ngIf="!isHamburgerMenuOpen">
+        menu
+    </mat-icon>
+    <div id="hamburger-menu" *ngIf="isHamburgerMenuOpen">
+        <mat-icon id="close-hamburger-button" (click)="toggleIsHamburgerMenuOpen()">
+            close
+        </mat-icon>
+
+        <div id="hamburger-navigation-links" class="column">
+            <div routerLink="/" class="hamburger-navigation-item" fragment="about-me-section" (click)="toggleIsHamburgerMenuOpen()">
+                about me
+            </div>
+            <div routerLink="/" class="hamburger-navigation-item" fragment="projects-section" (click)="toggleIsHamburgerMenuOpen()">
+                projects
+            </div>
+        </div>
+    </div>
+
+    <div id="navigation-links" class="row">
+        <div routerLink="/" fragment="about-me-section" class="navigation-item">about me</div>
+        <div routerLink="/" fragment="projects-section" class="navigation-item">projects</div>
+    </div>
 </nav>
