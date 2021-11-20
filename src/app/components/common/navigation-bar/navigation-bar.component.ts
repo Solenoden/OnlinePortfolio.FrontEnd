@@ -6,4 +6,9 @@ import { Component } from '@angular/core'
     styleUrls: ['./navigation-bar.component.scss']
 })
 export class NavigationBarComponent {
+    public isHamburgerMenuOpen = false
+
+    public toggleIsHamburgerMenuOpen(): void {
+        this.isHamburgerMenuOpen = !this.isHamburgerMenuOpen
+    }
 }
