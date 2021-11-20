@@ -1,0 +1,33 @@
+@use '~@angular/material' as material;
+@import '../app.theme';
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    & *[buttonPrefix] {
+        order: 0;
+        margin-right: 10px;
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button.btn-ghost {
+    background: transparent;
+    border: 2px solid material.get-color-from-palette($primary-palette, default-contast);
+    color: material.get-color-from-palette($primary-palette, default-contrast);
+
+    &:hover {
+        box-shadow: 0 0.5em 0.5em -0.4em material.get-color-from-palette($primary-palette, default-contrast);
+        transform: translateY(-0.25em);
+    }
+}
