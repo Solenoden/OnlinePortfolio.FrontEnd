@@ -83,6 +83,8 @@ describe('test CacheService', () => {
         }
     ]
 
+    const mockAuthenticationToken = 'sda135q1ftgq1t3g'
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
@@ -125,7 +127,7 @@ describe('test CacheService', () => {
         })
 
         describe('test setProjects', () => {
-            it('should retrieve the projects from session storage', () => {
+            it('should set the projects in session storage', () => {
                 const sessionStorageSetItemSpy = spyOn(sessionStorage, 'setItem')
                 const mockProject = new Project()
                 mockProject.name = 'Awesome project'
@@ -145,6 +147,47 @@ describe('test CacheService', () => {
             it('should remove the projects from session storage', () => {
                 const sessionStorageRemoveItemSpy = spyOn(sessionStorage, 'removeItem')
                 cacheService.removeProjects()
+
+                void expect(sessionStorageRemoveItemSpy).toHaveBeenCalledTimes(1)
+            })
+        })
+    })
+
+    describe('authentication token', () => {
+        let sessionStorageGetItemSpy: Spy
+
+        beforeEach(() => {
+            sessionStorageGetItemSpy = spyOn(sessionStorage, 'getItem')
+                .and.returnValue(mockAuthenticationToken)
+        })
+
+        describe('test getAuthenticationToken', () => {
+            it('should retrieve the authentication tokens from session storage', () => {
+                const authenticationToken = cacheService.getAuthenticationToken()
+
+                void expect(sessionStorageGetItemSpy).toHaveBeenCalledTimes(1)
+                void expect(authenticationToken).toEqual(mockAuthenticationToken)
+            })
+        })
+
+        describe('test setAuthenticationToken', () => {
+            it('should retrieve the authentication token from session storage', () => {
+                const sessionStorageSetItemSpy = spyOn(sessionStorage, 'setItem')
+                const mockToken = '123'
+                cacheService.setAuthenticationToken(mockToken)
+
+                void expect(sessionStorageSetItemSpy).toHaveBeenCalledTimes(1)
+                void expect(sessionStorageSetItemSpy).toHaveBeenCalledWith(
+                    jasmine.any(String),
+                    mockToken
+                )
+            })
+        })
+
+        describe('test removeAuthenticationToken', () => {
+            it('should remove the authentication token from session storage', () => {
+                const sessionStorageRemoveItemSpy = spyOn(sessionStorage, 'removeItem')
+                cacheService.removeAuthenticationToken()
 
                 void expect(sessionStorageRemoveItemSpy).toHaveBeenCalledTimes(1)
             })
