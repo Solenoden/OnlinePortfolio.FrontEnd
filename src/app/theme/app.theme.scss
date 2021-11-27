@@ -1,9 +1,11 @@
 @use '~@angular/material' as mat;
-@import './color-palettes/app-dark-blue.palette';
-@import './color-palettes/app-yellow.palette';
+@import './color-palettes/app-dark-grey.palette';
+@import './color-palettes/app-light-green.palette';
+@import './color-palettes/app-turquoise.palette';
 
-$primary-palette: mat.define-palette($app-dark-blue-palette);
-$accent-palette: mat.define-palette($app-yellow-palette);
+$primary-palette: mat.define-palette($app-dark-grey-palette);
+$accent-palette: mat.define-palette($app-light-green-palette);
+$accent-alternative-palette: mat.define-palette($app-turquoise-palette);
 $warn-palette: mat.define-palette(mat.$red-palette);
 
 $primary-font: 'Raleway', 'Helvetica Neue', sans-serif;

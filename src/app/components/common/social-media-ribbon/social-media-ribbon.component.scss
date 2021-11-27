@@ -17,23 +17,23 @@
 }
 
 a {
-    opacity: 0.9;
     margin-right: 10px;
 
     &:last-child {
         margin-right: 0;
     }
-
-    &:hover {
-        opacity: 1;
-    }
 }
 
 mat-icon {
     color: material.get-color-from-palette($primary-palette, darker-contrast);
+    transition: all 0.3s;
+
+    &:hover {
+        color: material.get-color-from-palette($accent-palette, default);
+    }
 }
 
-img, a, mat-icon {
+a, mat-icon, app-github-icon, app-linkedin-icon {
     width: 25px;
     height: 25px;
     font-size: 25px;

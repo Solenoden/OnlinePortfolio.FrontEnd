@@ -1,16 +1,17 @@
 @use '~@angular/material' as material;
 @import '../../theme/app.theme';
+@import '../../theme/mixins/apply-to-desktop.mixin';
 
 $modal-padding: 15px;
 
 #modal-header {
     justify-content: space-between;
-    padding: $modal-padding;
-    border-bottom: 2px solid material.get-color-from-palette($primary-palette, darker-contrast);
+    padding: 25px $modal-padding $modal-padding $modal-padding;
 
     h2 {
         margin: auto 0;
         height: fit-content;
+        color: material.get-color-from-palette($accent-palette, default);
     }
 
     mat-icon {
@@ -22,17 +23,25 @@ $modal-padding: 15px;
 }
 
 #modal-body {
-    padding: $modal-padding;
+    padding: 0 $modal-padding $modal-padding $modal-padding;
 }
 
 #repository-info-block {
+    flex-wrap: nowrap;
+
     a {
         margin-left: auto;
+        margin-right: 15px;
+    }
 
-        img {
-            width: 32px;
-            height: 32px;
-        }
+    a, a app-github-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+    }
+
+    .column {
+        margin: 0 15px;
     }
 
     .field {
@@ -49,27 +58,26 @@ $modal-padding: 15px;
 
 p {
     margin-bottom: 32px;
-    margin-top: 27px;
+    margin-top: 0;
 }
 
-mat-form-field {
+:host::ng-deep mat-form-field {
     width: 100%;
 
-    ::ng-deep .mat-form-field-flex {
+    .mat-form-field-flex {
         padding-top: 0;
-        background-color: material.get-color-from-palette($primary-palette, default);
+        background-color: material.get-color-from-palette($primary-palette, 500);
     }
 
-    ::ng-deep .mat-form-field-prefix .mat-icon {
+    .mat-form-field-prefix .mat-icon {
         margin-right: 15px;
     }
 }
 
-::ng-deep .mat-bottom-sheet-container, ::ng-deep .mat-dialog-container {
+::ng-deep .mat-dialog-container, ::ng-deep .mat-bottom-sheet-container {
     padding: 0;
-    border: 3px solid material.get-color-from-palette($primary-palette, darker-contrast);
 }
 
-::ng-deep .mat-bottom-sheet-container {
-    border-bottom: none;
+::ng-deep .mat-dialog-container {
+    border: 3px solid material.get-color-from-palette($primary-palette, darker);
 }
