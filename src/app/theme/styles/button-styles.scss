@@ -25,9 +25,22 @@ button.btn-ghost {
     background: transparent;
     border: 2px solid material.get-color-from-palette($primary-palette, default-contast);
     color: material.get-color-from-palette($primary-palette, default-contrast);
+    transition: all 0.3s;
 
     &:hover {
-        box-shadow: 0 0.5em 0.5em -0.4em material.get-color-from-palette($primary-palette, default-contrast);
+        box-shadow: 0 4px 7px -4px material.get-color-from-palette($primary-palette, default-contrast);
         transform: translateY(-0.25em);
+    }
+}
+
+button.btn-gradient {
+    background: linear-gradient(material.get-color-from-palette($primary-palette, default), material.get-color-from-palette($primary-palette, default)) padding-box, linear-gradient(to bottom right,  material.get-color-from-palette($accent-palette, default),  material.get-color-from-palette($accent-alternative-palette, default) 100%) border-box;
+    border: 3px solid transparent;
+    color: material.get-color-from-palette($accent-palette, default);
+    border-radius: 10px;
+    transition: all 0.5s;
+
+    &:hover {
+        transform: perspective(1px) scale(1.1);
     }
 }

@@ -8,19 +8,53 @@
     flex-direction: column;
 }
 
-img {
-    height: 150px;
-    width: 150px;
-    margin: 20px auto;
+#portrait {
+    background-image: url('../../../assets/images/portrait.jpg');
+    background-size: contain;
+    position: relative;
+    aspect-ratio: 1;
+    margin: 35px 0;
+    height: auto;
+    width: 100%;
+    max-width: 150px;
     border-radius: 100%;
+
+    &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+        margin-right: 10px;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom right, material.get-color-from-palette($accent-alternative-palette, default), material.get-color-from-palette($accent-palette, default));
+        z-index: -2;
+        border-radius: inherit;
+        box-sizing: border-box;
+    }
+
+    &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 0;
+        margin-top: 11px;
+        margin-right: 11px;
+        height: 99%;
+        width: 99%;
+        background: material.get-color-from-palette($primary-palette, 500);
+        z-index: -1;
+        border-radius: inherit;
+    }
 }
 
-h1, h2, h3 {
+h1, h3 {
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-h2, h3 {
+h3 {
     font-weight: normal;
 }
 
@@ -30,6 +64,10 @@ p {
     line-height: 1.2;
     font-size: 1rem;
     margin-top: 5px;
+}
+
+#text-container {
+    justify-content: center;
 }
 
 @include apply-to-tablet() {
@@ -45,23 +83,15 @@ p {
     h3, p {
         font-size: 1.25rem;
     }
-
-    img {
-        height: auto;
-        width: 100%;
-        max-width: 150px;
-        margin-top: auto;
-    }
 }
 
 @include apply-to-desktop() {
-    img {
+    #portrait {
         max-width: 250px;
-        margin-top: auto;
-        margin-bottom: auto;
+        margin: auto;
     }
 
-    h1, h2 {
+    h1 {
         font-size: 2.5rem;
     }
 

@@ -5,8 +5,8 @@ $modal-border-radius: 15px;
 
 .mat-bottom-sheet-container, .mat-dialog-container {
     display: flex !important;
-    background-color: material.get-color-from-palette($primary-palette, darker) !important;
-    color: material.get-color-from-palette($primary-palette, darker-contrast);
+    background: material.get-color-from-palette($primary-palette, default) !important;
+    color: material.get-color-from-palette($primary-palette, darker-contrast) !important;
 }
 
 .mat-bottom-sheet-container {
@@ -20,4 +20,13 @@ $modal-border-radius: 15px;
 .mat-dialog-container {
     flex-direction: row;
     border-radius: $modal-border-radius !important;
+    min-width: 80vw;
+    max-width: 80vw;
+    min-height: 80vh !important;
+    max-height: 80vh !important;
+
+    & > * {
+        width: 100%;
+        height: 100%;
+    }
 }

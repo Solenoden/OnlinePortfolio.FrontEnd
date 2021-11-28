@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Project } from '../models/project.model'
 
 enum StorageKey {
+    AuthenticationToken = 'authenticationToken',
     Projects = 'projects'
 }
 
@@ -18,5 +19,17 @@ export class CacheService {
 
     public removeProjects(): void {
         sessionStorage.removeItem(StorageKey.Projects)
+    }
+
+    public getAuthenticationToken(): string {
+        return sessionStorage.getItem(StorageKey.AuthenticationToken)
+    }
+
+    public setAuthenticationToken(authenticationToken: string): void {
+        sessionStorage.setItem(StorageKey.AuthenticationToken, authenticationToken)
+    }
+
+    public removeAuthenticationToken(): void {
+        sessionStorage.removeItem(StorageKey.AuthenticationToken)
     }
 }

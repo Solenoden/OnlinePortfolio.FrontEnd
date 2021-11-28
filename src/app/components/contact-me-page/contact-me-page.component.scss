@@ -1,6 +1,19 @@
+@use '~@angular/material' as material;
+@import '../../theme/app.theme';
+@import '../../theme/mixins/apply-to-desktop.mixin';
+
 :host {
     display: flex;
     flex-direction: column;
+    background-color: material.get-color-from-palette($primary-palette, darker);
+    padding: 32px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+#container {
+    width: fit-content;
+    margin: auto;
 }
 
 h1 {
@@ -8,10 +21,30 @@ h1 {
 }
 
 p {
-    margin: 50px 0;
+    margin: 25px 0;
 }
 
 a {
     margin-right: 15px;
     margin-bottom: 15px;
+}
+
+:host::ng-deep app-github-icon svg:hover path {
+    fill: material.get-color-from-palette($primary-palette, default-contrast) !important;
+}
+
+:host::ng-deep app-linkedin-icon svg:hover {
+    #inner {
+        fill: material.get-color-from-palette($primary-palette, default) !important;
+    }
+
+    path {
+        fill: material.get-color-from-palette($primary-palette, default-contrast) !important;
+    }
+}
+
+@include apply-to-desktop {
+    :host {
+        padding: 100px;
+    }
 }

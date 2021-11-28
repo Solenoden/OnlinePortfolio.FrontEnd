@@ -10,4 +10,5 @@
     window['env']['githubUsername'] = ''
     window['env']['linkedInProfileLink'] = ''
     window['env']['linkedInUsername'] = ''
+    window['env']['backendServiceToken'] = ''
 })(this)

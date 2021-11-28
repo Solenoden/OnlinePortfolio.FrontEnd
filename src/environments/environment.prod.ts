@@ -20,4 +20,7 @@ export const environment = {
     linkedInUsername: window['env'] && window['env']['linkedInUsername']
         ? window['env']['linkedInUsername']
         : '',
+    backendServiceToken: window['env'] && window['env']['backendServiceToken']
+        ? window['env']['backendServiceToken']
+        : '',
 }

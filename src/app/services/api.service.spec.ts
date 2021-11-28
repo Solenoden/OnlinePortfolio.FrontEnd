@@ -1,11 +1,9 @@
 import { ApiService } from './api.service'
 import { TestBed } from '@angular/core/testing'
-import { HttpClientModule, HttpHeaders } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import Spy = jasmine.Spy
 import { of, throwError } from 'rxjs'
 import { Project } from '../models/project.model'
-import { UserFriendlyError } from '../errors/user-friendly-error.model'
-import { ApiCallError } from '../errors/app.errors'
 
 describe('test ApiService', () => {
     let apiService: ApiService
@@ -100,16 +98,12 @@ describe('test ApiService', () => {
         let httpGetSpy: Spy
 
         beforeEach(() => {
-            httpGetSpy = spyOn(apiService['httpClient'], 'get').and.returnValue(of({ body: mockProjects }))
+            httpGetSpy = spyOn(apiService['httpService'], 'get').and.returnValue(of(mockProjects))
         })
 
         it('should make a service call to get projects', () => {
             apiService.getProjects().subscribe(() => {
                 void expect(httpGetSpy).toHaveBeenCalledTimes(1)
-                void expect(httpGetSpy).toHaveBeenCalledWith(
-                    jasmine.any(String),
-                    { headers: jasmine.any(HttpHeaders), observe: jasmine.any(String) }
-                )
             })
         })
 
@@ -123,14 +117,13 @@ describe('test ApiService', () => {
             })
         })
 
-        it('should return an ApiCallError if the service call fails', () => {
+        it('should return an error if the service call fails', () => {
             httpGetSpy.and.returnValue(throwError(new Error()))
 
             apiService.getProjects().subscribe(() => {
                 fail('should have thrown an error')
             }, error => {
-                void expect(error).toBeInstanceOf(UserFriendlyError)
-                void expect(error).toBeInstanceOf(ApiCallError)
+                void expect(error).toBeTruthy()
             })
         })
     })
