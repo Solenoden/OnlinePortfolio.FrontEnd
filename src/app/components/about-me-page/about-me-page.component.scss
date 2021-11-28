@@ -13,6 +13,7 @@
     height: 250px;
     perspective: 1000px;
     margin-bottom: 15px;
+    user-select: none;
 
     &:last-child {
         margin-bottom: 0;

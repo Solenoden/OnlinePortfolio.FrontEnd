@@ -1,0 +1,26 @@
+@use '~@angular/material' as material;
+@import '../../../theme/app.theme';
+
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+
+    path, #inner {
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        #inner {
+            fill: material.get-color-from-palette($primary-palette, darker);
+        }
+
+        path {
+            fill: material.get-color-from-palette($accent-palette, default);
+        }
+    }
+}

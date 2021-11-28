@@ -28,6 +28,18 @@ pagination-controls .ngx-pagination {
         transform: translateY(-1.35em) scale(0.75);
     }
 
+    &.mat-focused {
+        .mat-form-field-outline {
+            opacity: 1 !important;
+            color: rgba(white, 0.3);
+        }
+
+        .mat-form-field-outline-thick {
+            color: rgba(white, 0.3) !important;
+        }
+    }
+
+
     .mat-form-field-infix {
         padding: 0.75em 0 0.75em 0;
         border-top-width: 0.25em;
@@ -54,7 +66,7 @@ pagination-controls .ngx-pagination {
 }
 
 .mat-select-arrow-wrapper {
-    transform: translateY(0%);
+    transform: translateY(0%) !important;
 }
 
 input[readonly] {

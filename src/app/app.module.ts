@@ -20,6 +20,8 @@ import { EpochDatePipe } from './pipes/epoch-date.pipe'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 import { MatDialogModule } from '@angular/material/dialog'
 import { ContactMePageComponent } from './components/contact-me-page/contact-me-page.component'
+import { GithubIconComponent } from './components/common/github-icon/github-icon.component'
+import { LinkedinIconComponent } from './components/common/linkedin-icon/linkedin-icon.component'
 
 @NgModule({
     declarations: [
@@ -32,9 +34,10 @@ import { ContactMePageComponent } from './components/contact-me-page/contact-me-
         ProjectsPageComponent,
         ProjectDetailModalComponent,
         EpochDatePipe,
-        ContactMePageComponent
+        ContactMePageComponent,
+        GithubIconComponent,
+        LinkedinIconComponent
     ],
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     imports: [
         BrowserModule,
         AppRoutingModule,

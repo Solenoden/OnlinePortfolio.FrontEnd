@@ -21,15 +21,18 @@ nav {
 
 .navigation-item {
     margin-right: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    transition: all 0.3s;
 
     &:last-child {
         margin-right: 0;
     }
-}
 
-.navigation-item:hover {
-    opacity: 0.8;
-    cursor: pointer;
+    &:hover {
+        color: material.get-color-from-palette($accent-palette, default);
+    }
 }
 
 #home-page-link {
@@ -42,16 +45,17 @@ mat-icon {
     color: material.get-color-from-palette($primary-palette, default-contrast);
 }
 
-#navigation-links {
+#navigation-links, nav > button {
     display: none;
 }
 
-#hamburger-menu {
-    @include glass-morphism(
-            $background-color: material.get-color-from-palette($primary-palette, default),
-            $background-opacity: 0.9
-    );
+#open-hamburger-button {
+    color: material.get-color-from-palette($primary-palette, default-contrast);
+}
 
+#hamburger-menu {
+    background-color: material.get-color-from-palette($primary-palette, default);
+    opacity: 0.98;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -82,12 +86,21 @@ mat-icon {
                 margin-bottom: 0;
             }
         }
+
+        button {
+            justify-content: center;
+            margin-top: 15px;
+        }
     }
 }
 
 @include apply-to-desktop {
     #navigation-links {
         display: flex;
+    }
+
+    nav > button {
+        display: unset;
     }
 
     #open-hamburger-button {
