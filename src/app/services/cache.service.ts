@@ -8,6 +8,11 @@ enum StorageKey {
 
 @Injectable({ providedIn: 'root' })
 export class CacheService {
+    constructor() {
+        this.removeProjects()
+        this.removeAuthenticationToken()
+    }
+
     public getProjects(): Project[] {
         const json = JSON.parse(sessionStorage.getItem(StorageKey.Projects)) as Record<string, unknown>[]
         return json ? json.map(jsonObj => Project.fromJson(jsonObj)) : undefined

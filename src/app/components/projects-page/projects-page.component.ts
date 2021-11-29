@@ -13,6 +13,7 @@ export class ProjectsPageComponent implements OnInit {
     public allProjects: Project[] = []
     public projectsToDisplay: Project[] = []
     public projectSearchText: string = undefined
+    public projectsPerPage: number
     public currentPageNumber = 1
     public couldNotRetrieveProjects = false
 
@@ -26,6 +27,11 @@ export class ProjectsPageComponent implements OnInit {
     }
 
     private getProjects(): void {
+        this.projectsPerPage = 3
+        if (window.innerWidth > 400) {
+            this.projectsPerPage = window.innerWidth > 768 ? 12 : 6
+        }
+
         this.stateService.getProjects().subscribe(result => {
             this.allProjects = result
             this.projectsToDisplay = this.allProjects

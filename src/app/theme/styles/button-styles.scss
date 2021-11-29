@@ -34,9 +34,10 @@ button.btn-ghost {
 }
 
 button.btn-gradient {
-    background: linear-gradient(material.get-color-from-palette($primary-palette, default), material.get-color-from-palette($primary-palette, default)) padding-box, linear-gradient(to bottom right,  material.get-color-from-palette($accent-palette, default),  material.get-color-from-palette($accent-alternative-palette, default) 100%) border-box;
+    background: linear-gradient(material.get-color-from-palette($primary-palette, default), material.get-color-from-palette($primary-palette, default)) padding-box, linear-gradient(to bottom right,  material.get-color-from-palette($accent-alternative-palette, default),  material.get-color-from-palette($accent-palette, default) 100%) border-box;
     border: 3px solid transparent;
     color: material.get-color-from-palette($accent-palette, default);
+    padding: 5px 12px;
     border-radius: 10px;
     transition: all 0.5s;
 

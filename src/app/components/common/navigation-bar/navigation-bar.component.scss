@@ -14,7 +14,7 @@ nav {
     justify-content: space-between;
     z-index: 100;
     width: 100%;
-    padding: 20px;
+    padding: 15px 20px;
     color: material.get-color-from-palette($primary-palette, default-contrast);
     box-shadow: 0 8px 32px 0 rgba(material.get-color-from-palette($primary-palette, default), 0.65);
 }
