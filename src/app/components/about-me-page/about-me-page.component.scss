@@ -1,6 +1,7 @@
 @use '~@angular/material' as material;
 @import '../../theme/app.theme';
 @import '../../theme/mixins/apply-to-desktop.mixin';
+@import '../../theme/mixins/apply-to-tablet.mixin';
 
 #flip-cards-container {
     width: 100%;
@@ -14,6 +15,7 @@
     perspective: 1000px;
     margin-bottom: 15px;
     user-select: none;
+    overflow: hidden;
 
     &:last-child {
         margin-bottom: 0;
@@ -47,6 +49,7 @@
 
     .flip-card-back {
         transform: rotateY(180deg);
+        font-size: 0.8rem;
     }
 
     .flip-card-front, .flip-card-back {
@@ -79,6 +82,12 @@
                 margin-bottom: 0;
             }
         }
+    }
+}
+
+@include apply-to-tablet() {
+    .flip-card-back {
+        font-size: 1rem;
     }
 }
 

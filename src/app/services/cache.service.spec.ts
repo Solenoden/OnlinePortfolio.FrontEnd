@@ -1,6 +1,5 @@
 import { CacheService } from './cache.service'
 import { TestBed } from '@angular/core/testing'
-import { HttpClientModule } from '@angular/common/http'
 import Spy = jasmine.Spy
 import { Project } from '../models/project.model'
 
@@ -86,12 +85,7 @@ describe('test CacheService', () => {
     const mockAuthenticationToken = 'sda135q1ftgq1t3g'
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                HttpClientModule
-            ]
-        })
-
+        TestBed.configureTestingModule({})
         cacheService = TestBed.inject(CacheService)
     })
 

@@ -65,6 +65,33 @@ describe('ProjectsPageComponent', () => {
     })
 
     describe('test getProjects', () => {
+        let windowWidthSpy: Spy<any>
+
+        beforeEach(() => {
+            windowWidthSpy = spyOnProperty(window, 'innerWidth', 'get').and.returnValue(350)
+            component.projectsPerPage = 0
+        })
+
+        it('should set projectsPerPage to 3 if on mobile', () => {
+            component['getProjects']()
+
+            void expect(component.projectsPerPage).toEqual(3)
+        })
+
+        it('should set projectsPerPage to 6 if on tablet', () => {
+            windowWidthSpy.and.returnValue(600)
+            component['getProjects']()
+
+            void expect(component.projectsPerPage).toEqual(6)
+        })
+
+        it('should set projectsPerPage to 12 if on desktop', () => {
+            windowWidthSpy.and.returnValue(1200)
+            component['getProjects']()
+
+            void expect(component.projectsPerPage).toEqual(12)
+        })
+
         it('should make a call to state to retrieve projects', () => {
             component['getProjects']()
 

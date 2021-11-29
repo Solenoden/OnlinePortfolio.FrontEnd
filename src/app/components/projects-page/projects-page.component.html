@@ -6,8 +6,10 @@
         <input matInput [(ngModel)]="projectSearchText" (input)="searchProjects()" placeholder="Search by name..." autocomplete="off">
     </mat-form-field>
 
+    <pagination-controls *ngIf="projectsToDisplay.length > 0 && projectsPerPage < projectsToDisplay.length" (pageChange)="currentPageNumber = $event"></pagination-controls>
+
     <div id="project-list" class="row">
-        <div *ngFor="let project of projectsToDisplay | paginate: { itemsPerPage: 4, currentPage: currentPageNumber }"
+        <div *ngFor="let project of projectsToDisplay | paginate: { itemsPerPage: projectsPerPage, currentPage: currentPageNumber }"
              class="project-card column" (click)="openProjectDetailModal(project)">
             <mat-icon class="material-icons-outlined">folder</mat-icon>
 
@@ -20,7 +22,7 @@
         </div>
     </div>
 
-    <pagination-controls *ngIf="projectsToDisplay.length > 0" (pageChange)="currentPageNumber = $event"></pagination-controls>
+    <pagination-controls *ngIf="projectsToDisplay.length > 0 && projectsPerPage < projectsToDisplay.length" (pageChange)="currentPageNumber = $event"></pagination-controls>
 </div>
 
 <div *ngIf="couldNotRetrieveProjects" class="error-block">
