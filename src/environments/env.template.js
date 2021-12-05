@@ -11,4 +11,5 @@
     window['env']['linkedInProfileLink'] = '${LINKED_IN_PROFILE_LINK}'
     window['env']['linkedInUsername'] = '${LINKED_IN_USERNAME}'
     window['env']['backendServiceToken'] = '${BACKEND_SERVICE_TOKEN}'
+    window['env']['cvDocumentUrl'] = '${CV_DOCUMENT_URL}'
 })(this)
