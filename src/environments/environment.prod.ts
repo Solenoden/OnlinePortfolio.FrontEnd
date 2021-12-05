@@ -23,4 +23,7 @@ export const environment = {
     backendServiceToken: window['env'] && window['env']['backendServiceToken']
         ? window['env']['backendServiceToken']
         : '',
+    cvDocumentUrl: window['env'] && window['env']['cvDocumentUrl']
+        ? window['env']['cvDocumentUrl']
+        : '',
 }
