@@ -11,7 +11,7 @@
 
 .flip-card {
     background-color: transparent;
-    height: 250px;
+    height: 200px;
     perspective: 1000px;
     margin-bottom: 15px;
     user-select: none;
@@ -50,6 +50,30 @@
     .flip-card-back {
         transform: rotateY(180deg);
         font-size: 0.8rem;
+        text-align: left;
+
+        .row {
+            justify-content: space-between;
+        }
+
+        .flip-card-title {
+            height: fit-content;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: 15px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 
     .flip-card-front, .flip-card-back {
@@ -63,25 +87,8 @@
         -webkit-backface-visibility: hidden;
     }
 
-    mat-icon {
-        margin-left: auto;
-    }
-
     .flip-card-title, mat-icon {
         color: material.get-color-from-palette($accent-palette, default);
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-            margin-bottom: 15px;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
     }
 }
 
@@ -106,6 +113,10 @@
     }
 
     .flip-card {
-        height: 300px;
+        height: 250px;
+    }
+
+    .flip-card-back .row {
+        margin-bottom: 10px;
     }
 }
