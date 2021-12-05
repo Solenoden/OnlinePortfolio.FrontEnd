@@ -3,15 +3,15 @@ name: continuous-deployment
 on:
   push:
     branches:
-      - dev
       - master
+      - prod
 
 env:
   NODE_VERSION: 14.18.1
 
 jobs:
   publish-dev:
-    if: github.ref == 'refs/heads/dev'
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -29,7 +29,7 @@ jobs:
           process_type: web
 
   publish-prod:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/prod'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
