@@ -28,8 +28,8 @@ export class ProjectsPageComponent implements OnInit {
 
     private getProjects(): void {
         this.projectsPerPage = 3
-        if (window.innerWidth > 400) {
-            this.projectsPerPage = window.innerWidth > 768 ? 12 : 6
+        if (window.innerWidth > 768) {
+            this.projectsPerPage = window.innerWidth > 1000 ? 12 : 6
         }
 
         this.stateService.getProjects().subscribe(result => {
