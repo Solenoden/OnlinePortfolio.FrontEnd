@@ -78,14 +78,14 @@ describe('ProjectsPageComponent', () => {
             void expect(component.projectsPerPage).toEqual(3)
         })
 
-        it('should set projectsPerPage to 6 if on tablet', () => {
-            windowWidthSpy.and.returnValue(600)
+        it('should set projectsPerPage to 6 if on desktop small', () => {
+            windowWidthSpy.and.returnValue(800)
             component['getProjects']()
 
             void expect(component.projectsPerPage).toEqual(6)
         })
 
-        it('should set projectsPerPage to 12 if on desktop', () => {
+        it('should set projectsPerPage to 12 if on desktop large', () => {
             windowWidthSpy.and.returnValue(1200)
             component['getProjects']()
 

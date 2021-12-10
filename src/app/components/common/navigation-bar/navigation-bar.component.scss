@@ -45,7 +45,7 @@ mat-icon {
     color: material.get-color-from-palette($primary-palette, default-contrast);
 }
 
-#navigation-links, nav > button {
+#navigation-links, nav > a {
     display: none;
 }
 
@@ -87,9 +87,14 @@ mat-icon {
             }
         }
 
-        button {
+        & > a {
             justify-content: center;
-            margin-top: 15px;
+            margin: 15px auto 0 auto;
+
+            & > button {
+                font-size: 1.1em;
+                padding: 8px 19px;
+            }
         }
     }
 }
@@ -99,7 +104,7 @@ mat-icon {
         display: flex;
     }
 
-    nav > button {
+    nav > a {
         display: unset;
     }
 
