@@ -47,7 +47,7 @@ jobs:
           process_type: web
 
   build-and-publish-docker-image-to-dockerhub:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/prod'
     runs-on: ubuntu-latest
     environment: Prod
     steps:
